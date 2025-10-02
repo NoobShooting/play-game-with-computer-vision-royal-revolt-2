@@ -1,9 +1,0 @@
-{
-    "step": [
-        "join_battle.png"
-    ],
-    "next_available_step": [
-        "attack.png",
-        "close.png"
-    ]
-}

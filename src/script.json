@@ -1,0 +1,11 @@
+{
+    "step": [
+        "battle.png",
+        "attack.png",
+        "close.png"
+    ],
+    "next_available_step": [
+        "attack.png",
+        "close.png"
+    ]
+}

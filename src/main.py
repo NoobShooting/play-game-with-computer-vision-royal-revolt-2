@@ -8,14 +8,28 @@ import json
 
 from step import Step
 
-pyautogui.FAILSAFE = True  # di chuột ra góc màn hình để dừng bot
-
-DELAY = 1.5  # thời gian nghỉ giữa 2 lần click
-
+pyautogui.FAILSAFE = True
+DELAY = 1.5
 constPath = "src/images/"
 
 
-def click_template_image(step: Step, threshold=0.7):
+def multi_scale_match(screen_gray, template_gray, threshold=0.75, scales=None):
+    if scales is None:
+        scales = [0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2]
+    best_points = []
+    for scale in scales:
+        resized = cv2.resize(template_gray, None, fx=scale,
+                             fy=scale, interpolation=cv2.INTER_LINEAR)
+        res = cv2.matchTemplate(screen_gray, resized, cv2.TM_CCOEFF_NORMED)
+        loc = np.where(res >= threshold)
+        points = list(zip(*loc[::-1]))
+        if points:
+            best_points = points
+            break
+    return best_points
+
+
+def click_template_image(step: Step, threshold=0.75):
     full_path = step.name
     sct = mss.mss()
     monitor = sct.monitors[1]  # màn hình chính
@@ -28,32 +42,20 @@ def click_template_image(step: Step, threshold=0.7):
     # chụp màn hình
     img = np.array(sct.grab(monitor))
     img = cv2.cvtColor(img, cv2.COLOR_BGRA2BGR)
-    """
-    Tìm target trên màn hình bằng template matching
-    """
-    # đọc template
-    template = cv2.imread(full_path, cv2.IMREAD_COLOR)  # ép về BGR 3 kênh
+
+    template = cv2.imread(full_path, cv2.IMREAD_COLOR)
     if template is None:
         raise FileNotFoundError(f"Không tìm thấy template: {full_path}")
 
-    # convert cả 2 sang grayscale để dễ so sánh
     screen_gray = cv2.cvtColor(game_screenshot, cv2.COLOR_BGR2GRAY)
     template_gray = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
 
-    res = cv2.matchTemplate(screen_gray, template_gray, cv2.TM_CCOEFF_NORMED)
-    loc = np.where(res >= threshold)
-    points = list(zip(*loc[::-1]))
-    # img_name = constPath + "sct_{width}x{height}.png"
-    # game_screenshot_path = img_name.format(**monitor)
-    # sct_img = sct.grab((0, 0, monitor["width"], monitor["height"]))
-    # mss.tools.to_png(sct_img.rgb, sct_img.size,
-    #                  output=game_screenshot_path)
-
-    # tìm target
+    points = multi_scale_match(screen_gray, template_gray, threshold)
 
     # click nếu tìm thấy
+    print("Thử click " + full_path)
 
-    if points:
+    if points and step.is_clicked is False:
         template_image = cv2.imread(full_path, 1)
         w = template_image.shape[1]
         h = template_image.shape[0]
@@ -62,37 +64,31 @@ def click_template_image(step: Step, threshold=0.7):
         y /= height_reset_multiplier
         x_c = int((x + x + w) // 2)
         y_c = int((y + y + h) // 2)
-        print("Trying to click " + full_path)
+        print(full_path + " đã được click!")
         pyautogui.click(x=x_c, y=y_c)
-        time.sleep(0.5)
-        return click_template_image(step)
-    elif not points:
-        print("Not found!")
-        return points
-    print(full_path + " is clicked!")
     time.sleep(DELAY)
     return points
-
-
-print("Bot started... Nhấn CTRL+C để dừng")
-# Đọc JSON
-with open("src/gameplayconfig.json", "r") as f:
-    data = json.load(f)
-
-print("Step:", data["step"])
-print("Next available step:", data["next_available_step"])
 
 
 def step_searching(step_name):
     img_path = os.path.join(constPath, step_name)
     step = Step(img_path)
-    print(step_name + " searching")
-    return click_template_image(step)
+    while click_template_image(step) != []:
+        step.is_clicked = True
+    print("Step:", step.name, "is_clicked:", step.is_clicked)
+    return step
 
+
+print("Bot started... Nhấn CTRL+C để dừng")
+# Đọc JSON
+with open("src/script.json", "r") as f:
+    data = json.load(f)
+
+print("Step:", data["step"])
+print("Next available step:", data["next_available_step"])
 
 # Lặp qua next steps
 while True:
     for parent_step in data["step"]:
-        if not step_searching(parent_step):
-            for next_step in data["next_available_step"]:
-                step_searching(next_step)
+        while step_searching(parent_step).is_clicked is False:
+            pass
