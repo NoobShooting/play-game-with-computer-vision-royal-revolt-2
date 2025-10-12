@@ -31,10 +31,18 @@ class ActionType(Enum):
     SKILL_Q = SKILL + '_q'
     SKILL_W = SKILL + '_w'
     GEM = 'gem'
+    CELL = 'cell'
+    CHEST = 'chest'
+
+
+class Step:
+    def __init__(self, name: str, is_clicked: bool = False):
+        self.name = name
+        self.is_clicked = is_clicked
 
 
 constPath = "src/images/"
-
+pyautogui.FAILSAFE = True
 STEP_POLL_INTERVAL = 1
 
 # Lock để đồng bộ thao tác pyautogui giữa các thread
@@ -63,28 +71,20 @@ def multi_scale_match(screen_gray, template_gray, threshold=0.8, scales=None):
 
 
 def click_template_image(step: str, threshold=0.75):
-    """
-    Tìm vị trí template trên màn hình.
-    Nếu không tìm thấy thì trả về vị trí mặc định (giữa màn hình, lệch +10px).
-    """
-    full_path = os.path.join(constPath, step) + ".png"
+    full_path = os.path.join(constPath, step)
 
-    # --- Đọc template ---
     template = cv2.imread(full_path, cv2.IMREAD_COLOR)
 
-    # --- Chụp màn hình game ---
     sct = mss.mss()
-    monitor = sct.monitors[1]  # màn hình chính
+    monitor = sct.monitors[1]
     screenshot = np.array(
         sct.grab((0, 0, monitor["width"], monitor["height"])))
-    screenshot = screenshot[:, :, :3]  # bỏ alpha
+    screenshot = screenshot[:, :, :3]
     screen_gray = cv2.cvtColor(screenshot, cv2.COLOR_BGR2GRAY)
     template_gray = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
 
-    # --- Match template ---
-    points = multi_scale_match(screen_gray, template_gray, threshold)
+    points = multi_scale_match(screenshot, template, threshold)
 
-    # --- Nếu tìm thấy template ---
     if points:
         w, h = template.shape[1], template.shape[0]
         x, y = points[0]
@@ -94,50 +94,51 @@ def click_template_image(step: str, threshold=0.75):
     return []
 
 
-def move_in_arc(monitor, radius_ratio=0.3, start_angle=10, end_angle=60, step_angle=10):
+def move_in_arc(monitor,
+                distance=300,
+                start_offset=-20, end_offset=40,
+                step=5, speed=0.02):
     """
-    Di chuyển theo hình vòng cung phía trên bên phải màn hình.
-
-    monitor: thông tin màn hình từ mss (monitor["width"], monitor["height"])
-    radius_ratio: tỉ lệ bán kính so với chiều rộng màn hình (0.3 = 30%)
-    start_angle: góc bắt đầu (0 = ngang phải, 90 = thẳng lên)
-    end_angle: góc kết thúc
-    step_angle: bước góc giữa các click
+    Di chuyển chuột theo vòng cung nhỏ phía trước nhân vật (phía trên màn hình - trục Y dương).
+    - distance: bán kính cung (độ dài “tay vươn”)
+    - start_offset / end_offset: góc lệch so với hướng trước (90°)
+    - step: bước góc (mịn cung)
+    - speed: thời gian giữa mỗi bước (tốc độ di chuyển)
     """
+    char_x, char_y = monitor["width"] // 2, monitor["height"] // 2 + 100
 
-    center_x = int(monitor["width"] * 0.5)
-    center_y = int(monitor["height"] * 0.5)
-    radius = int(monitor["width"] * radius_ratio)
+    base_angle = 90  # hướng "phía trước" nhân vật (trục Y dương màn hình)
 
-    print(
-        f"[MOVE] Quét cung từ {start_angle}° → {end_angle}° | bán kính {radius}px")
+    for offset in range(start_offset, end_offset + 1, step):
+        angle = base_angle + offset
 
-    for angle in range(start_angle, end_angle + 1, step_angle):
-        # Tính tọa độ theo góc
-        x = int(center_x + radius * math.cos(math.radians(angle)))
-        y = int(center_y - radius * math.sin(math.radians(angle)))
+        # Tính vị trí chuột theo góc lệch
+        target_x = int(char_x + distance * math.cos(math.radians(angle)))
+        target_y = int(char_y - distance * math.sin(math.radians(angle)))
 
-        # Thêm độ lệch ngẫu nhiên nhẹ để tự nhiên
-        x += random.randint(-15, 15)
-        y += random.randint(-15, 15)
+        # Random nhẹ để tự nhiên
+        target_x += random.randint(-8, 8)
+        target_y += random.randint(-8, 8)
 
         # Giới hạn trong màn hình
-        x = max(50, min(x, monitor["width"] - 50))
-        y = max(50, min(y, monitor["height"] - 50))
-
-        # Thực hiện click
-        safe_click(x, y)
-        print(f"[MOVE] Click cung tại ({x}, {y}) góc {angle}°")
-
-        # Delay giữa các click
-        time.sleep(random.uniform(0.8, 1.6))
-
-    print("[MOVE] Quét cung hoàn tất.\n")
+        target_x = max(10, min(target_x, monitor["width"] - 10))
+        target_y = max(10, min(target_y, monitor["height"] - 10))
+        print("Đang di chuyển chuột tới:", (target_x, target_y))
+        safe_click(target_x, target_y, number_of_clicks=3)
+        time.sleep(speed)
 
 
-def safe_click(x, y):
+def frange(start, stop, step):
+    while start < stop:
+        yield start
+        start += step
+
+
+def safe_click(x, y, time_after=1, number_of_clicks=1):
     with pyautogui_lock:
-        pyautogui.click(x=x, y=y)
+        for _ in range(number_of_clicks):
+            pyautogui.click(x=x, y=y)
+        time.sleep(time_after)
 
 
 def action(action_value: str):
@@ -149,32 +150,36 @@ def action(action_value: str):
         if points:
             x, y = points[0]
             print(f"[STEP] thấy {action_value} ở {(x,y)} -> clicking")
-            safe_click(x, y)
-            time.sleep(3)
-            if ActionType.SKIP.value in action_value:
+            if ActionType.SKILL.value in action_value:
                 move_in_arc(monitor=mss.mss().monitors[1])
-        else:
-            time.sleep(STEP_POLL_INTERVAL)
+            safe_click(x, y, 2)
+
+
+def create_thread(action_value: str):
+    t = threading.Thread(target=action, args=(action_value,), daemon=True)
+    t.start()
+    return t
 
 
 def start_threads():
-    actions = [ActionType.CONTINUE, ActionType.BATTLE, ActionType.ATTACK, ActionType.SKIP, ActionType.COLLECT,
-               ActionType.GEM]
-    # actions = [ActionType.SKIP]
-    skips = [ActionType.SKILL_1, ActionType.SKILL_2, ActionType.SKILL_3, ActionType.SKILL_5,
-             ActionType.SKILL_6, ActionType.SKILL_7, ActionType.SKILL_9,
-             ActionType.SKILL_Q, ActionType.SKILL_W, ActionType.SKILL_E, ActionType.SKILL_0,]
     threads = []
 
-    for s in actions:
-        t = threading.Thread(target=action, args=(s.value,), daemon=True)
-        t.start()
-        threads.append(t)
+    # actions = [ActionType.CONTINUE, ActionType.BATTLE, ActionType.ATTACK, ActionType.SKIP, ActionType.COLLECT,
+    #            ActionType.GEM, ActionType.CHEST, ActionType.SE]
+    # for a in actions:
+    #     create_thread(a.value)
 
-    for s in skips:
-        t = threading.Thread(target=action, args=(s.value,), daemon=True)
-        t.start()
-        threads.append(t)
+    # skips = [ActionType.SKILL_1, ActionType.SKILL_2, ActionType.SKILL_3, ActionType.SKILL_5,
+    #          ActionType.SKILL_6, ActionType.SKILL_7, ActionType.SKILL_9,
+    #          ActionType.SKILL_Q, ActionType.SKILL_W, ActionType.SKILL_E, ActionType.SKILL_0,]
+    # for s in skips:
+    #     create_thread(s.value)
+
+    images = [f for f in os.listdir(
+        constPath) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
+    for s in images:
+        create_thread(s)
+
     return threads
 
 
