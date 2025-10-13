@@ -1,0 +1,544 @@
+[2025-10-14 02:37:24] === BOT SESSION STARTED ===
+[2025-10-14 02:37:29] [STEP] BATTLE done
+[2025-10-14 02:37:36] [STEP] ATTACK done
+[2025-10-14 02:37:46] [STEP] MOVE done
+[2025-10-14 02:37:47] [STEP] CONTINUE done
+[2025-10-14 02:37:52] [STEP] CHESTS done
+[2025-10-14 02:37:53] [STEP] SELL done
+[2025-10-14 02:37:53] [STEP] COLLECT done
+[2025-10-14 02:37:54] [STEP] CLOSE done
+[2025-10-14 02:37:55] [INFO] Reset action states
+[2025-10-14 02:37:58] [STEP] BATTLE done
+[2025-10-14 02:38:01] [STEP] ATTACK done
+[2025-10-14 02:38:12] [STEP] MOVE done
+[2025-10-14 02:38:13] [STEP] CONTINUE done
+[2025-10-14 02:38:21] [STEP] CHESTS done
+[2025-10-14 02:38:21] [STEP] SELL done
+[2025-10-14 02:38:21] [STEP] COLLECT done
+[2025-10-14 02:38:22] [STEP] CLOSE done
+[2025-10-14 02:44:06] === BOT SESSION STARTED ===
+[2025-10-14 02:44:11] [STEP] BATTLE done ✅
+[2025-10-14 02:44:11] [NEXT] → ATTACK
+[2025-10-14 02:44:18] [STEP] ATTACK done ✅
+[2025-10-14 02:44:18] [NEXT] → MOVE
+[2025-10-14 02:44:31] [STEP] MOVE done ✅
+[2025-10-14 02:44:31] [NEXT] → CHESTS
+[2025-10-14 02:44:32] [INFO] Reset action states
+[2025-10-14 02:44:41] [STEP] CHESTS done ✅
+[2025-10-14 02:44:41] [NEXT] → SELL
+[2025-10-14 02:44:42] [STEP] SELL done ✅
+[2025-10-14 02:44:42] [NEXT] → BATTLE
+[2025-10-14 02:44:46] [STEP] BATTLE done ✅
+[2025-10-14 02:44:46] [NEXT] → COLLECT
+[2025-10-14 02:48:48] Loaded templates: ['chest_selection.png', 'collect_button.png', 'continue_button.png', 'game_play.png', 'main.png', 'pop_up.png']
+[2025-10-14 02:48:48] === BOT SESSION STARTED ===
+[2025-10-14 02:48:51] [DO] Executing: battle
+[2025-10-14 02:48:51] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 02:48:51] [OK] Screen changed to 'pop_up' ✅
+[2025-10-14 02:48:51] [NEXT] → attack
+[2025-10-14 02:48:52] [DO] Executing: attack
+[2025-10-14 02:48:53] [CLICK] ATTACK at (1920,1180)
+[2025-10-14 02:48:55] [OK] Screen changed to 'game_play' ✅
+[2025-10-14 02:48:55] [NEXT] → move
+[2025-10-14 02:48:56] [DO] Executing: move
+[2025-10-14 02:49:06] [MOVE] (1395, 792) | angle=0
+[2025-10-14 02:49:11] [WARN] Screen 'continue_button' not detected within 5.0s ❌
+[2025-10-14 02:49:11] [RETRY] Retrying move (#1)
+[2025-10-14 02:49:12] [DO] Executing: move
+[2025-10-14 02:49:23] [MOVE] (1436, 701) | angle=30
+[2025-10-14 02:49:28] [WARN] Screen 'continue_button' not detected within 5.0s ❌
+[2025-10-14 02:49:28] [RETRY] Retrying move (#2)
+[2025-10-14 02:50:45] [EXIT] Bot stopped by user.
+[2025-10-14 02:50:46] Loaded templates: ['chest_selection.png', 'collect_button.png', 'continue_button.png', 'game_play.png', 'main.png', 'pop_up.png']
+[2025-10-14 02:50:46] === BOT SESSION STARTED ===
+[2025-10-14 02:50:48] [DO] Executing: battle
+[2025-10-14 02:50:48] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 02:50:54] [WARN] Screen 'pop_up' not detected within 5.0s ❌
+[2025-10-14 02:50:54] [RETRY] Retrying battle (#1)
+[2025-10-14 02:51:17] [DO] Executing: battle
+[2025-10-14 02:51:17] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 02:51:23] [WARN] Screen 'pop_up' not detected within 5.0s ❌
+[2025-10-14 02:51:23] [RETRY] Retrying battle (#2)
+[2025-10-14 02:51:24] [DO] Executing: battle
+[2025-10-14 02:51:24] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 02:51:30] [WARN] Screen 'pop_up' not detected within 5.0s ❌
+[2025-10-14 02:51:30] [RETRY] Retrying battle (#3)
+[2025-10-14 02:51:31] [DO] Executing: battle
+[2025-10-14 02:51:31] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 02:51:37] [WARN] Screen 'pop_up' not detected within 5.0s ❌
+[2025-10-14 02:51:37] [FAIL] battle stuck, force skip
+[2025-10-14 02:51:41] [DO] Executing: battle
+[2025-10-14 02:51:41] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 02:51:41] [OK] Screen changed to 'pop_up' ✅
+[2025-10-14 02:51:41] [NEXT] → attack
+[2025-10-14 02:51:42] [DO] Executing: attack
+[2025-10-14 02:51:42] [CLICK] ATTACK at (1920,1180)
+[2025-10-14 02:51:44] [OK] Screen changed to 'game_play' ✅
+[2025-10-14 02:51:44] [NEXT] → move
+[2025-10-14 02:51:45] [DO] Executing: move
+[2025-10-14 02:52:01] [WARN] Screen 'continue_button' not detected within 5.0s ❌
+[2025-10-14 02:52:01] [RETRY] Retrying move (#1)
+[2025-10-14 02:52:02] [DO] Executing: move
+[2025-10-14 02:52:18] [WARN] Screen 'continue_button' not detected within 5.0s ❌
+[2025-10-14 02:52:18] [RETRY] Retrying move (#2)
+[2025-10-14 02:52:19] [DO] Executing: move
+[2025-10-14 02:52:36] [WARN] Screen 'continue_button' not detected within 5.0s ❌
+[2025-10-14 02:52:36] [RETRY] Retrying move (#3)
+[2025-10-14 02:52:37] [DO] Executing: move
+[2025-10-14 02:52:53] [WARN] Screen 'continue_button' not detected within 5.0s ❌
+[2025-10-14 02:52:53] [FAIL] move stuck, force skip
+[2025-10-14 02:53:30] Loaded templates: ['chest_selection.png', 'collect_button.png', 'continue_button.png', 'game_play.png', 'main.png', 'pop_up.png']
+[2025-10-14 02:53:30] === BOT SESSION STARTED ===
+[2025-10-14 02:53:30] [DO] Executing: battle
+[2025-10-14 02:53:30] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 02:53:36] [WARN] Screen 'pop_up' not detected within 5.0s ❌
+[2025-10-14 02:53:36] [RETRY] Retrying battle (#1)
+[2025-10-14 02:53:37] [DO] Executing: battle
+[2025-10-14 02:53:37] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 02:53:43] [WARN] Screen 'pop_up' not detected within 5.0s ❌
+[2025-10-14 02:53:43] [RETRY] Retrying battle (#2)
+[2025-10-14 02:53:44] [DO] Executing: battle
+[2025-10-14 02:53:44] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 02:53:44] [OK] Screen changed to 'pop_up' ✅
+[2025-10-14 02:53:44] [NEXT] → attack
+[2025-10-14 02:53:45] [DO] Executing: attack
+[2025-10-14 02:53:45] [CLICK] ATTACK at (1920,1180)
+[2025-10-14 02:53:51] [WARN] Screen 'game_play' not detected within 5.0s ❌
+[2025-10-14 02:53:51] [RETRY] Retrying attack (#1)
+[2025-10-14 02:54:50] [DO] Executing: attack
+[2025-10-14 02:54:50] [CLICK] ATTACK at (1920,1180)
+[2025-10-14 02:54:56] [WARN] Screen 'game_play' not detected within 5.0s ❌
+[2025-10-14 02:54:56] [RETRY] Retrying attack (#2)
+[2025-10-14 02:56:09] [DO] Executing: attack
+[2025-10-14 02:56:09] [CLICK] ATTACK at (1920,1180)
+[2025-10-14 02:56:14] [WARN] Screen 'game_play' not detected within 5.0s ❌
+[2025-10-14 02:56:14] [RETRY] Retrying attack (#3)
+[2025-10-14 02:56:16] [DO] Executing: attack
+[2025-10-14 02:56:16] [CLICK] ATTACK at (1920,1180)
+[2025-10-14 02:56:22] [WARN] Screen 'game_play' not detected within 5.0s ❌
+[2025-10-14 02:56:22] [FAIL] attack stuck, force skip
+[2025-10-14 02:56:23] [EXIT] Bot stopped by user.
+[2025-10-14 02:56:44] Loaded templates: ['chest_selection.png', 'collect_button.png', 'continue_button.png', 'game_play.png', 'main.png', 'pop_up.png']
+[2025-10-14 02:56:44] === BOT SESSION STARTED ===
+[2025-10-14 02:56:45] [DO] Executing: battle
+[2025-10-14 02:56:45] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 02:56:51] [WARN] Screen 'pop_up' not detected within 5.0s ❌
+[2025-10-14 02:56:51] [RETRY] Retrying battle (#1)
+[2025-10-14 02:56:52] [DO] Executing: battle
+[2025-10-14 02:56:52] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 02:56:53] [OK] Screen changed to 'pop_up' ✅
+[2025-10-14 02:56:53] [NEXT] → attack
+[2025-10-14 02:56:54] [DO] Executing: attack
+[2025-10-14 02:56:54] [CLICK] ATTACK at (1920,1180)
+[2025-10-14 02:57:00] [WARN] Screen 'game_play' not detected within 5.0s ❌
+[2025-10-14 02:57:00] [RETRY] Retrying attack (#1)
+[2025-10-14 02:58:57] [DO] Executing: attack
+[2025-10-14 02:58:57] [CLICK] ATTACK at (1920,1180)
+[2025-10-14 02:59:03] [WARN] Screen 'game_play' not detected within 5.0s ❌
+[2025-10-14 02:59:03] [RETRY] Retrying attack (#2)
+[2025-10-14 02:59:04] [DO] Executing: attack
+[2025-10-14 02:59:04] [CLICK] ATTACK at (1920,1180)
+[2025-10-14 02:59:10] [WARN] Screen 'game_play' not detected within 5.0s ❌
+[2025-10-14 02:59:10] [RETRY] Retrying attack (#3)
+[2025-10-14 02:59:42] [DO] Executing: attack
+[2025-10-14 02:59:43] [CLICK] ATTACK at (1920,1180)
+[2025-10-14 02:59:48] [WARN] Screen 'game_play' not detected within 5.0s ❌
+[2025-10-14 02:59:48] [FAIL] attack stuck, force skip
+[2025-10-14 03:04:34] [EXIT] Bot stopped by user.
+[2025-10-14 03:04:35] Loaded templates: ['chest_selection.png', 'collect_button.png', 'continue_button.png', 'game_play.png', 'main.png', 'pop_up.png']
+[2025-10-14 03:04:35] === BOT SESSION STARTED ===
+[2025-10-14 03:04:37] [DO] Executing: battle
+[2025-10-14 03:04:37] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:04:43] [WARN] Screen 'pop_up' not detected within 5.0s ❌
+[2025-10-14 03:04:43] [RETRY] Retrying battle (#1)
+[2025-10-14 03:04:44] [DO] Executing: battle
+[2025-10-14 03:04:44] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:04:44] [OK] Screen changed to 'pop_up' ✅
+[2025-10-14 03:04:44] [NEXT] → attack
+[2025-10-14 03:04:45] [DO] Executing: attack
+[2025-10-14 03:04:45] [CLICK] ATTACK at (1920,1180)
+[2025-10-14 03:04:51] [WARN] Screen 'game_play' not detected within 5.0s ❌
+[2025-10-14 03:04:51] [RETRY] Retrying attack (#1)
+[2025-10-14 03:04:53] [DO] Executing: attack
+[2025-10-14 03:04:53] [CLICK] ATTACK at (1920,1180)
+[2025-10-14 03:04:59] [WARN] Screen 'game_play' not detected within 5.0s ❌
+[2025-10-14 03:04:59] [RETRY] Retrying attack (#2)
+[2025-10-14 03:05:19] [DO] Executing: attack
+[2025-10-14 03:05:19] [CLICK] ATTACK at (1920,1180)
+[2025-10-14 03:05:24] [WARN] Screen 'game_play' not detected within 5.0s ❌
+[2025-10-14 03:05:24] [RETRY] Retrying attack (#3)
+[2025-10-14 03:05:38] [DO] Executing: attack
+[2025-10-14 03:05:38] [CLICK] ATTACK at (1920,1180)
+[2025-10-14 03:05:44] [WARN] Screen 'game_play' not detected within 5.0s ❌
+[2025-10-14 03:05:44] [FAIL] attack stuck after 4 tries, force skip → battle
+[2025-10-14 03:05:49] [DO] Executing: battle
+[2025-10-14 03:05:49] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:05:55] [WARN] Screen 'pop_up' not detected within 5.0s ❌
+[2025-10-14 03:05:55] [RETRY] Retrying battle (#2)
+[2025-10-14 03:06:12] [DO] Executing: battle
+[2025-10-14 03:06:12] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:06:18] [WARN] Screen 'pop_up' not detected within 5.0s ❌
+[2025-10-14 03:06:18] [RETRY] Retrying battle (#3)
+[2025-10-14 03:06:35] [DO] Executing: battle
+[2025-10-14 03:06:36] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:06:46] Loaded templates: ['chest_selection.png', 'collect_button.png', 'continue_button.png', 'game_play.png', 'main.png', 'pop_up.png']
+[2025-10-14 03:06:46] === BOT SESSION STARTED ===
+[2025-10-14 03:06:48] [DO] Executing: battle
+[2025-10-14 03:06:48] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:06:48] [STATE] Detected: collect_button.png | Expected: pop_up
+[2025-10-14 03:06:48] [RETRY] Retrying battle (#1)
+[2025-10-14 03:06:49] [DO] Executing: battle
+[2025-10-14 03:06:49] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:06:50] [STATE] Detected: collect_button.png | Expected: pop_up
+[2025-10-14 03:06:50] [RETRY] Retrying battle (#2)
+[2025-10-14 03:06:51] [DO] Executing: battle
+[2025-10-14 03:06:51] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:06:51] [STATE] Detected: pop_up.png | Expected: pop_up
+[2025-10-14 03:06:51] [NEXT] battle → attack
+[2025-10-14 03:06:52] [DO] Executing: attack
+[2025-10-14 03:06:52] [CLICK] ATTACK at (1920,1180)
+[2025-10-14 03:06:53] [STATE] Detected: pop_up.png | Expected: game_play
+[2025-10-14 03:06:53] [RETRY] Retrying attack (#1)
+[2025-10-14 03:06:53] [DO] Executing: attack
+[2025-10-14 03:06:53] [CLICK] ATTACK at (1920,1180)
+[2025-10-14 03:06:54] [STATE] Detected: pop_up.png | Expected: game_play
+[2025-10-14 03:06:54] [RETRY] Retrying attack (#2)
+[2025-10-14 03:06:55] [DO] Executing: attack
+[2025-10-14 03:06:55] [CLICK] ATTACK at (1920,1180)
+[2025-10-14 03:06:55] [STATE] Detected: collect_button.png | Expected: game_play
+[2025-10-14 03:06:55] [ROLLBACK] 'attack' rolled back → collect
+[2025-10-14 03:06:56] [DO] Executing: collect
+[2025-10-14 03:06:56] [CLICK] COLLECT at (1664,993)
+[2025-10-14 03:06:57] [STATE] Detected: unknown | Expected: main
+[2025-10-14 03:06:57] [RETRY] Retrying collect (#1)
+[2025-10-14 03:06:58] [DO] Executing: collect
+[2025-10-14 03:06:58] [CLICK] COLLECT at (1664,993)
+[2025-10-14 03:06:58] [STATE] Detected: unknown | Expected: main
+[2025-10-14 03:06:58] [RETRY] Retrying collect (#2)
+[2025-10-14 03:06:59] [DO] Executing: collect
+[2025-10-14 03:06:59] [CLICK] COLLECT at (1664,993)
+[2025-10-14 03:06:59] [STATE] Detected: game_play.png | Expected: main
+[2025-10-14 03:06:59] [RETRY] Retrying collect (#3)
+[2025-10-14 03:07:00] [DO] Executing: collect
+[2025-10-14 03:07:00] [CLICK] COLLECT at (1664,993)
+[2025-10-14 03:07:01] [STATE] Detected: game_play.png | Expected: main
+[2025-10-14 03:07:01] [FAIL] collect stuck after 4 retries → reset to battle
+[2025-10-14 03:07:02] [DO] Executing: battle
+[2025-10-14 03:07:02] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:07:02] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:07:02] [RETRY] Retrying battle (#1)
+[2025-10-14 03:07:03] [DO] Executing: battle
+[2025-10-14 03:07:03] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:07:04] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:07:04] [RETRY] Retrying battle (#2)
+[2025-10-14 03:07:04] [DO] Executing: battle
+[2025-10-14 03:07:05] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:07:05] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:07:05] [RETRY] Retrying battle (#3)
+[2025-10-14 03:07:06] [DO] Executing: battle
+[2025-10-14 03:07:06] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:07:06] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:07:06] [FAIL] battle stuck after 4 retries → reset to battle
+[2025-10-14 03:07:07] [DO] Executing: battle
+[2025-10-14 03:07:07] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:07:08] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:07:08] [RETRY] Retrying battle (#1)
+[2025-10-14 03:07:32] Loaded templates: ['chest_selection.png', 'collect_button.png', 'continue_button.png', 'game_play.png', 'main.png', 'pop_up.png']
+[2025-10-14 03:07:32] === BOT SESSION STARTED ===
+[2025-10-14 03:07:32] [DO] Executing: battle
+[2025-10-14 03:07:32] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:07:32] [STATE] Detected: continue_button.png | Expected: pop_up
+[2025-10-14 03:07:32] [RETRY] Retrying battle (#1)
+[2025-10-14 03:07:33] [DO] Executing: battle
+[2025-10-14 03:07:33] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:07:34] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:07:34] [RETRY] Retrying battle (#2)
+[2025-10-14 03:07:35] [DO] Executing: battle
+[2025-10-14 03:07:35] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:07:35] [STATE] Detected: game_play.png | Expected: pop_up
+[2025-10-14 03:07:35] [RETRY] Retrying battle (#3)
+[2025-10-14 03:07:36] [DO] Executing: battle
+[2025-10-14 03:07:36] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:07:37] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:07:37] [FAIL] battle stuck after 4 retries → reset to battle
+[2025-10-14 03:07:37] [DO] Executing: battle
+[2025-10-14 03:07:37] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:07:38] [STATE] Detected: game_play.png | Expected: pop_up
+[2025-10-14 03:07:38] [RETRY] Retrying battle (#1)
+[2025-10-14 03:07:39] [DO] Executing: battle
+[2025-10-14 03:07:39] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:07:39] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:07:39] [RETRY] Retrying battle (#2)
+[2025-10-14 03:07:40] [DO] Executing: battle
+[2025-10-14 03:07:40] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:07:41] [STATE] Detected: collect_button.png | Expected: pop_up
+[2025-10-14 03:07:41] [RETRY] Retrying battle (#3)
+[2025-10-14 03:07:42] [DO] Executing: battle
+[2025-10-14 03:07:42] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:07:42] [STATE] Detected: game_play.png | Expected: pop_up
+[2025-10-14 03:07:42] [FAIL] battle stuck after 4 retries → reset to battle
+[2025-10-14 03:07:43] [DO] Executing: battle
+[2025-10-14 03:07:43] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:07:44] [STATE] Detected: main.png | Expected: pop_up
+[2025-10-14 03:07:44] [RETRY] Retrying battle (#1)
+[2025-10-14 03:07:44] [DO] Executing: battle
+[2025-10-14 03:07:44] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:07:45] [STATE] Detected: pop_up.png | Expected: pop_up
+[2025-10-14 03:07:45] [NEXT] battle → attack
+[2025-10-14 03:07:46] [DO] Executing: attack
+[2025-10-14 03:07:46] [CLICK] ATTACK at (1920,1180)
+[2025-10-14 03:07:46] [STATE] Detected: unknown | Expected: game_play
+[2025-10-14 03:07:46] [RETRY] Retrying attack (#1)
+[2025-10-14 03:07:47] [DO] Executing: attack
+[2025-10-14 03:07:47] [CLICK] ATTACK at (1920,1180)
+[2025-10-14 03:07:48] [STATE] Detected: unknown | Expected: game_play
+[2025-10-14 03:07:48] [RETRY] Retrying attack (#2)
+[2025-10-14 03:07:49] [DO] Executing: attack
+[2025-10-14 03:07:49] [CLICK] ATTACK at (1920,1180)
+[2025-10-14 03:07:49] [STATE] Detected: game_play.png | Expected: game_play
+[2025-10-14 03:07:49] [NEXT] attack → move
+[2025-10-14 03:07:50] [DO] Executing: move
+[2025-10-14 03:08:00] [CLICK] SKILL_1 at (256,1152)
+[2025-10-14 03:08:00] [CLICK] SKILL_2 at (512,1152)
+[2025-10-14 03:08:01] [CLICK] SKILL_3 at (768,1152)
+[2025-10-14 03:08:01] [CLICK] SKILL_4 at (1280,1152)
+[2025-10-14 03:08:01] [CLICK] SKILL_5 at (1792,1152)
+[2025-10-14 03:08:01] [CLICK] SKILL_6 at (2048,1152)
+[2025-10-14 03:08:01] [CLICK] SKILL_7 at (2304,1152)
+[2025-10-14 03:08:02] [STATE] Detected: unknown | Expected: continue_button
+[2025-10-14 03:08:02] [RETRY] Retrying move (#1)
+[2025-10-14 03:08:03] [DO] Executing: move
+[2025-10-14 03:08:13] [CLICK] SKILL_1 at (256,1152)
+[2025-10-14 03:08:14] [CLICK] SKILL_2 at (512,1152)
+[2025-10-14 03:08:14] [CLICK] SKILL_3 at (768,1152)
+[2025-10-14 03:08:14] [CLICK] SKILL_4 at (1280,1152)
+[2025-10-14 03:08:14] [CLICK] SKILL_5 at (1792,1152)
+[2025-10-14 03:08:14] [CLICK] SKILL_6 at (2048,1152)
+[2025-10-14 03:08:15] [CLICK] SKILL_7 at (2304,1152)
+[2025-10-14 03:08:15] [STATE] Detected: game_play.png | Expected: continue_button
+[2025-10-14 03:08:15] [RETRY] Retrying move (#2)
+[2025-10-14 03:08:16] [DO] Executing: move
+[2025-10-14 03:08:27] [CLICK] SKILL_1 at (256,1152)
+[2025-10-14 03:08:27] [CLICK] SKILL_2 at (512,1152)
+[2025-10-14 03:08:27] [CLICK] SKILL_3 at (768,1152)
+[2025-10-14 03:08:27] [CLICK] SKILL_4 at (1280,1152)
+[2025-10-14 03:08:27] [CLICK] SKILL_5 at (1792,1152)
+[2025-10-14 03:08:28] [CLICK] SKILL_6 at (2048,1152)
+[2025-10-14 03:08:28] [CLICK] SKILL_7 at (2304,1152)
+[2025-10-14 03:08:29] [STATE] Detected: game_play.png | Expected: continue_button
+[2025-10-14 03:08:29] [RETRY] Retrying move (#3)
+[2025-10-14 03:08:29] [DO] Executing: move
+[2025-10-14 03:08:40] [CLICK] SKILL_1 at (256,1152)
+[2025-10-14 03:08:40] [CLICK] SKILL_2 at (512,1152)
+[2025-10-14 03:08:40] [CLICK] SKILL_3 at (768,1152)
+[2025-10-14 03:08:40] [CLICK] SKILL_4 at (1280,1152)
+[2025-10-14 03:08:41] [CLICK] SKILL_5 at (1792,1152)
+[2025-10-14 03:08:41] [CLICK] SKILL_6 at (2048,1152)
+[2025-10-14 03:08:41] [CLICK] SKILL_7 at (2304,1152)
+[2025-10-14 03:08:42] [STATE] Detected: unknown | Expected: continue_button
+[2025-10-14 03:08:42] [FAIL] move stuck after 4 retries → reset to battle
+[2025-10-14 03:08:42] [DO] Executing: battle
+[2025-10-14 03:08:43] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:08:43] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:08:43] [RETRY] Retrying battle (#1)
+[2025-10-14 03:08:44] [DO] Executing: battle
+[2025-10-14 03:08:44] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:08:44] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:08:44] [RETRY] Retrying battle (#2)
+[2025-10-14 03:08:45] [DO] Executing: battle
+[2025-10-14 03:08:45] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:08:46] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:08:46] [RETRY] Retrying battle (#3)
+[2025-10-14 03:08:47] [DO] Executing: battle
+[2025-10-14 03:08:47] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:08:47] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:08:47] [FAIL] battle stuck after 4 retries → reset to battle
+[2025-10-14 03:08:48] [DO] Executing: battle
+[2025-10-14 03:08:48] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:08:49] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:08:49] [RETRY] Retrying battle (#1)
+[2025-10-14 03:08:49] [DO] Executing: battle
+[2025-10-14 03:08:50] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:08:50] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:08:50] [RETRY] Retrying battle (#2)
+[2025-10-14 03:08:51] [DO] Executing: battle
+[2025-10-14 03:08:51] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:08:51] [STATE] Detected: game_play.png | Expected: pop_up
+[2025-10-14 03:08:51] [RETRY] Retrying battle (#3)
+[2025-10-14 03:08:52] [DO] Executing: battle
+[2025-10-14 03:08:52] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:08:53] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:08:53] [FAIL] battle stuck after 4 retries → reset to battle
+[2025-10-14 03:08:54] [DO] Executing: battle
+[2025-10-14 03:08:54] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:08:54] [STATE] Detected: game_play.png | Expected: pop_up
+[2025-10-14 03:08:54] [RETRY] Retrying battle (#1)
+[2025-10-14 03:08:55] [DO] Executing: battle
+[2025-10-14 03:08:55] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:08:56] [STATE] Detected: game_play.png | Expected: pop_up
+[2025-10-14 03:08:56] [RETRY] Retrying battle (#2)
+[2025-10-14 03:08:56] [DO] Executing: battle
+[2025-10-14 03:08:57] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:08:57] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:08:57] [RETRY] Retrying battle (#3)
+[2025-10-14 03:08:58] [DO] Executing: battle
+[2025-10-14 03:08:58] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:08:58] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:08:58] [FAIL] battle stuck after 4 retries → reset to battle
+[2025-10-14 03:08:59] [DO] Executing: battle
+[2025-10-14 03:08:59] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:00] [STATE] Detected: game_play.png | Expected: pop_up
+[2025-10-14 03:09:00] [RETRY] Retrying battle (#1)
+[2025-10-14 03:09:01] [DO] Executing: battle
+[2025-10-14 03:09:01] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:01] [STATE] Detected: game_play.png | Expected: pop_up
+[2025-10-14 03:09:01] [RETRY] Retrying battle (#2)
+[2025-10-14 03:09:02] [DO] Executing: battle
+[2025-10-14 03:09:02] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:03] [STATE] Detected: game_play.png | Expected: pop_up
+[2025-10-14 03:09:03] [RETRY] Retrying battle (#3)
+[2025-10-14 03:09:03] [DO] Executing: battle
+[2025-10-14 03:09:04] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:04] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:09:04] [FAIL] battle stuck after 4 retries → reset to battle
+[2025-10-14 03:09:05] [DO] Executing: battle
+[2025-10-14 03:09:05] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:05] [STATE] Detected: game_play.png | Expected: pop_up
+[2025-10-14 03:09:05] [RETRY] Retrying battle (#1)
+[2025-10-14 03:09:06] [DO] Executing: battle
+[2025-10-14 03:09:06] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:07] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:09:07] [RETRY] Retrying battle (#2)
+[2025-10-14 03:09:08] [DO] Executing: battle
+[2025-10-14 03:09:08] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:08] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:09:08] [RETRY] Retrying battle (#3)
+[2025-10-14 03:09:09] [DO] Executing: battle
+[2025-10-14 03:09:09] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:10] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:09:10] [FAIL] battle stuck after 4 retries → reset to battle
+[2025-10-14 03:09:10] [DO] Executing: battle
+[2025-10-14 03:09:11] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:11] [STATE] Detected: game_play.png | Expected: pop_up
+[2025-10-14 03:09:11] [RETRY] Retrying battle (#1)
+[2025-10-14 03:09:12] [DO] Executing: battle
+[2025-10-14 03:09:12] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:13] [STATE] Detected: game_play.png | Expected: pop_up
+[2025-10-14 03:09:13] [RETRY] Retrying battle (#2)
+[2025-10-14 03:09:13] [DO] Executing: battle
+[2025-10-14 03:09:13] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:14] [STATE] Detected: game_play.png | Expected: pop_up
+[2025-10-14 03:09:14] [RETRY] Retrying battle (#3)
+[2025-10-14 03:09:15] [DO] Executing: battle
+[2025-10-14 03:09:15] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:15] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:09:15] [FAIL] battle stuck after 4 retries → reset to battle
+[2025-10-14 03:09:16] [DO] Executing: battle
+[2025-10-14 03:09:16] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:17] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:09:17] [RETRY] Retrying battle (#1)
+[2025-10-14 03:09:18] [DO] Executing: battle
+[2025-10-14 03:09:18] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:18] [STATE] Detected: game_play.png | Expected: pop_up
+[2025-10-14 03:09:18] [RETRY] Retrying battle (#2)
+[2025-10-14 03:09:19] [DO] Executing: battle
+[2025-10-14 03:09:19] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:20] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:09:20] [RETRY] Retrying battle (#3)
+[2025-10-14 03:09:20] [DO] Executing: battle
+[2025-10-14 03:09:20] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:21] [STATE] Detected: game_play.png | Expected: pop_up
+[2025-10-14 03:09:21] [FAIL] battle stuck after 4 retries → reset to battle
+[2025-10-14 03:09:22] [DO] Executing: battle
+[2025-10-14 03:09:22] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:22] [STATE] Detected: game_play.png | Expected: pop_up
+[2025-10-14 03:09:22] [RETRY] Retrying battle (#1)
+[2025-10-14 03:09:23] [DO] Executing: battle
+[2025-10-14 03:09:23] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:24] [STATE] Detected: game_play.png | Expected: pop_up
+[2025-10-14 03:09:24] [RETRY] Retrying battle (#2)
+[2025-10-14 03:09:25] [DO] Executing: battle
+[2025-10-14 03:09:25] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:25] [STATE] Detected: game_play.png | Expected: pop_up
+[2025-10-14 03:09:25] [RETRY] Retrying battle (#3)
+[2025-10-14 03:09:26] [DO] Executing: battle
+[2025-10-14 03:09:26] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:27] [STATE] Detected: game_play.png | Expected: pop_up
+[2025-10-14 03:09:27] [FAIL] battle stuck after 4 retries → reset to battle
+[2025-10-14 03:09:27] [DO] Executing: battle
+[2025-10-14 03:09:27] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:28] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:09:28] [RETRY] Retrying battle (#1)
+[2025-10-14 03:09:29] [DO] Executing: battle
+[2025-10-14 03:09:29] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:29] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:09:29] [RETRY] Retrying battle (#2)
+[2025-10-14 03:09:30] [DO] Executing: battle
+[2025-10-14 03:09:30] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:31] [STATE] Detected: game_play.png | Expected: pop_up
+[2025-10-14 03:09:31] [RETRY] Retrying battle (#3)
+[2025-10-14 03:09:32] [DO] Executing: battle
+[2025-10-14 03:09:32] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:32] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:09:32] [FAIL] battle stuck after 4 retries → reset to battle
+[2025-10-14 03:09:33] [DO] Executing: battle
+[2025-10-14 03:09:33] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:34] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:09:34] [RETRY] Retrying battle (#1)
+[2025-10-14 03:09:34] [DO] Executing: battle
+[2025-10-14 03:09:34] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:35] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:09:35] [RETRY] Retrying battle (#2)
+[2025-10-14 03:09:36] [DO] Executing: battle
+[2025-10-14 03:09:36] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:36] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:09:36] [RETRY] Retrying battle (#3)
+[2025-10-14 03:09:37] [DO] Executing: battle
+[2025-10-14 03:09:37] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:38] [STATE] Detected: game_play.png | Expected: pop_up
+[2025-10-14 03:09:38] [FAIL] battle stuck after 4 retries → reset to battle
+[2025-10-14 03:09:39] [DO] Executing: battle
+[2025-10-14 03:09:39] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:39] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:09:39] [RETRY] Retrying battle (#1)
+[2025-10-14 03:09:40] [DO] Executing: battle
+[2025-10-14 03:09:40] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:41] [STATE] Detected: game_play.png | Expected: pop_up
+[2025-10-14 03:09:41] [RETRY] Retrying battle (#2)
+[2025-10-14 03:09:41] [DO] Executing: battle
+[2025-10-14 03:09:42] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:42] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:09:42] [RETRY] Retrying battle (#3)
+[2025-10-14 03:09:43] [DO] Executing: battle
+[2025-10-14 03:09:43] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:43] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:09:43] [FAIL] battle stuck after 4 retries → reset to battle
+[2025-10-14 03:09:50] [DO] Executing: battle
+[2025-10-14 03:09:50] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:51] [STATE] Detected: continue_button.png | Expected: pop_up
+[2025-10-14 03:09:51] [RETRY] Retrying battle (#1)
+[2025-10-14 03:09:52] [DO] Executing: battle
+[2025-10-14 03:09:52] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:52] [STATE] Detected: continue_button.png | Expected: pop_up
+[2025-10-14 03:09:52] [RETRY] Retrying battle (#2)
+[2025-10-14 03:09:53] [DO] Executing: battle
+[2025-10-14 03:09:53] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:54] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:09:54] [RETRY] Retrying battle (#3)
+[2025-10-14 03:09:54] [DO] Executing: battle
+[2025-10-14 03:09:55] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:55] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:09:55] [FAIL] battle stuck after 4 retries → reset to battle
+[2025-10-14 03:09:56] [DO] Executing: battle
+[2025-10-14 03:09:56] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:56] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:09:56] [RETRY] Retrying battle (#1)
+[2025-10-14 03:09:57] [DO] Executing: battle
+[2025-10-14 03:09:57] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:58] [STATE] Detected: unknown | Expected: pop_up
+[2025-10-14 03:09:58] [RETRY] Retrying battle (#2)
+[2025-10-14 03:09:59] [DO] Executing: battle
+[2025-10-14 03:09:59] [CLICK] BATTLE at (2355,1296)
+[2025-10-14 03:09:59] [STATE] Detected: game_play.png | Expected: pop_up
+[2025-10-14 03:09:59] [RETRY] Retrying battle (#3)
+[2025-10-14 03:10:00] [EXIT] Bot stopped by user.
