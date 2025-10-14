@@ -1,0 +1,15 @@
+[2025-10-14 23:23:37] Click at (1509, 761) with Button.left
+[2025-10-14 23:23:43] Click at (1515, 1425) with Button.left
+[2025-10-14 23:23:47] Click at (1379, 516) with Button.left
+[2025-10-14 23:23:48] Click at (1117, 939) with Button.left
+[2025-10-14 23:23:49] Click at (1160, 889) with Button.left
+[2025-10-14 23:23:51] Click at (2396, 1222) with Button.left
+[2025-10-14 23:23:52] Click at (2407, 204) with Button.left
+[2025-10-14 23:23:53] Click at (1519, 630) with Button.left
+[2025-10-14 23:24:04] Click at (1273, 1122) with Button.left
+[2025-10-14 23:24:06] Click at (1152, 1110) with Button.left
+[2025-10-14 23:24:09] Click at (2188, 1002) with Button.left
+[2025-10-15 00:38:19] Click at (1505, 1424) with Button.left
+[2025-10-15 00:38:23] Click at (1591, 912) with Button.left
+[2025-10-15 00:38:23] Click at (1587, 1434) with Button.left
+[2025-10-15 00:38:37] Click at (2182, 1002) with Button.left
