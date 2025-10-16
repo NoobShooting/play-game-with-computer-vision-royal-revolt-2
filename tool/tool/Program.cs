@@ -7,8 +7,15 @@ class Program
     // =====================
     static void Main()
     {
-        Console.WriteLine("=== AUTO START ==="); 
-       
+        Console.WriteLine("=== AUTO START ===");
+        StartScriptJoinBattle();
+    }
+
+    private static void StartScriptJoinBattle()
+    {
+        var gameStateManager = new GameApplication(BotState.InMainMenu);
+        var currentState = gameStateManager.CurrentState;
+        var threadHolder = new ThreadHolder(currentState);
         while (true)
         {
             if (WindowHelper.IsRoyalRevoltRunning())
@@ -18,37 +25,79 @@ class Program
                     Util.w = rect.Right - rect.Left;
                     Util.h = rect.Bottom - rect.Top;
 
-                    Console.WriteLine($"[INFO] Kích thước cửa sổ game: {Util.w}x{Util.h}");
-                    StartScriptJoinBattle();
+                    // Console.WriteLine($"[INFO] Game resolution: {Util.w}x{Util.h}");
+                    //if (GameStateManager.GamePaused)
+                    //{
+                    //    Console.WriteLine("⏸ Game mất focus — tạm dừng bot...");
+                    //    Thread.Sleep(1000);
+                    //    continue;
+                    //}
+
+                    // chỗ nãy hãy tạo 1 hàm check trạng thái game hiện tại -> sẽ có action hợp lí
+                    // currentState = checkCurrentFrame();
+                    switch (currentState)
+                    {
+                        case BotState.InMainMenu:
+                            if (ClickBattleIcon())
+                            {
+                                currentState = BotState.JoiningBattle;
+                            }
+                            break;
+
+                        case BotState.JoiningBattle:
+                            if (ClickAttackIcon())
+                            {
+                                threadHolder.StartBattle();
+                                currentState = BotState.InBattle;
+                            }
+                            break;
+
+                        case BotState.InBattle:
+                            //if (ThreadHolder.IsBattleEnded)
+                            //{
+                            //    currentState = BotState.BattleEnded;
+                            //}
+                            break;
+
+                        case BotState.BattleEnded:
+                            if (ClickContinueIcon())
+                            {
+                                currentState = BotState.OpeningChest;
+                            }
+                            break;
+
+                        case BotState.OpeningChest:
+                            if (ClickChests())
+                            {
+                                currentState = BotState.InMainMenu;
+                            }
+                            break;
+
+                        default:
+                            currentState = BotState.InMainMenu;
+                            threadHolder.KillAllThreads();
+                            break;
+                    }
+                    threadHolder.CurrentState = currentState;
+                    Console.WriteLine($"Current State: {currentState}");
+                    Thread.Sleep(500);
                 }
             }
             else
             {
-                Console.WriteLine("[WARN] Không lấy được kích thước cửa sổ game, fallback về full screen.");
+                Console.WriteLine("[WARN] Can not get game resolution, fallback to full screen.");
                 Thread.Sleep(1000);
             }
         }
     }
-    static void StartScriptJoinBattle()
+
+    private static bool ClickBattleIcon() => WindowHelper.Click((int)(Util.w * 0.92), (int)(Util.h * 0.88), "battle", 2);
+    private static bool ClickAttackIcon() => WindowHelper.Click((int)(Util.w * 0.74), (int)(Util.h * 0.83), "attack");
+    private static bool ClickContinueIcon() => WindowHelper.Click((int)(Util.w * 0.75), (int)(Util.h * 0.85), "continue");
+    private static bool ClickCollectIcon() => WindowHelper.Click((int)(Util.w * 0.6), (int)(Util.h * 0.7), "collect");
+    private static bool ClickChests()
     {
-        //if (ClickBattleIcon())
-        //{
-        //    if (ClickAttackIcon())
-        //    {
-        //        // ClickCollectIcon();
-        //        ThreadHolder.StartBattle();
-        //        ClickContinueIcon();
-        //        ClickChests();
-        //    }
-        //}
-        ClickChests();
-    }
-    static bool ClickBattleIcon() => WindowHelper.Click((int)(Util.w * 0.92), (int)(Util.h * 0.88), "battle", 2);
-    static bool ClickAttackIcon() => WindowHelper.Click((int)(Util.w * 0.74), (int)(Util.h * 0.83), "attack");
-    static bool ClickContinueIcon() => WindowHelper.Click((int)(Util.w * 0.75), (int)(Util.h * 0.85), "continue");
-    static bool ClickCollectIcon() => WindowHelper.Click((int)(Util.w * 0.6), (int)(Util.h * 0.7), "collect");
-    static void ClickChests()
-    {
+        var isAllOpened = false;
         // Các vị trí cố định (đáy rương)
         double[] xRatios = { 0.25, 0.5, 0.75 };
         double[] yRatios = { 0.55, 0.75 };
@@ -73,7 +122,7 @@ class Program
             int clickX = (int)(Util.w * Math.Clamp(jitterX, 0.05, 0.95));
             int clickY = (int)(Util.h * Math.Clamp(jitterY, 0.05, 0.95));
 
-            WindowHelper.Click(clickX, clickY, $"chest");
+            isAllOpened = WindowHelper.Click(clickX, clickY, $"chest");
             Thread.Sleep(rnd.Next(250, 500));
             if (AfterSelectChest())
             {
@@ -82,10 +131,11 @@ class Program
         }
 
         Console.WriteLine("[CHEST] Clicked 3 random chests");
+        return isAllOpened;
     }
-    static bool AfterSelectChest()
+    private static bool AfterSelectChest()
     {
-       return WindowHelper.Click((int)(Util.w * 0.3), (int)(Util.h * 0.7), "getit") ||
-        WindowHelper.Click((int)(Util.w * 0.6), (int)(Util.h * 0.7), "sell");
+        return WindowHelper.Click((int)(Util.w * 0.3), (int)(Util.h * 0.7), "get_it") ||
+         WindowHelper.Click((int)(Util.w * 0.6), (int)(Util.h * 0.7), "sell");
     }
 }
