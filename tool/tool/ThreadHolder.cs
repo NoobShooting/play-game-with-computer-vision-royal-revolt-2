@@ -2,80 +2,64 @@
 {
     public class ThreadHolder
     {
-        public BotState CurrentState { get; set; } = BotState.Idle;
-        private Thread? moveThread, skillThread;
-        public ThreadHolder(BotState currentState)
+        public GameState CurrentState { get; set; } = GameState.Idle;
+        private Thread? moveThread = null, skillThread = null;
+        public ThreadHolder(GameState currentState)
         {
             CurrentState = currentState;
-        }
-
-        // =====================
-        // MOVE CHARACTER
-        // =====================
+        } 
         private void MoveCharacter()
         {
-            while (CurrentState == BotState.InBattle)
+            double angle = 40, step = 20;
+            var gameInstance = GameApplication.GetInstance();
+            var width = gameInstance.width;
+            var height = gameInstance.height;
+            while (CurrentState == GameState.InBattle)
             {
-                int cx = Util.w / 2, cy = (int)(Util.h * 0.55);
-                int radius = (int)(Math.Min(Util.w, Util.h) * 0.12);
-                double angle = 45, step = 15;
+                int cx = width / 2, cy = (int)(height * 0.55);
+                int radius = (int)(Math.Min(width, height) * 0.12);
                 angle += step;
-                if (angle > 75) angle = 10;
+                if (angle > 80) angle = 100;
 
                 double rad = Math.PI * angle / 180.0;
                 int distance = 100;
                 int tx = cx + (int)(radius * Math.Cos(rad)) + distance;
                 int ty = cy - (int)(radius * Math.Sin(rad)) - distance;
 
-                Console.WriteLine($"Moving to ({cx},{cy})");
+                Console.WriteLine($"Moving to ({tx},{ty})");
                 SystemUtil.SetCursorPos(tx, ty);
                 SystemUtil.mouse_event(Util.MOUSEEVENTF_LEFTDOWN, cx, cy, 0, UIntPtr.Zero);
-                Thread.Sleep(2500);
+                Thread.Sleep(10000);
                 SystemUtil.mouse_event(Util.MOUSEEVENTF_LEFTUP, cx, cy, 0, UIntPtr.Zero);
             }
-        }
-
-        // =====================
-        // CLICK SKILL
-        // =====================
+        } 
         private void ClickSkill()
         {
             string keys = "123567eqw";
-            while (CurrentState == BotState.InBattle)
+            while (CurrentState == GameState.InBattle)
             {
                 SendKeys.SendWait(keys);
                 Thread.Sleep(300);
             }
         }
-
-        // =====================
-        // START BATTLE (TỰ DỪNG SAU 3 PHÚT)
-        // =====================
         public void StartBattle()
         {
             Console.WriteLine("Battle start");
-            Thread.Sleep(2000);
-
             startThread(moveThread, MoveCharacter);
             startThread(skillThread, ClickSkill);
         }
-
         private void startThread(Thread? thread, ThreadStart action)
         {
             if (thread != null) return;
             thread = new Thread(action) { IsBackground = true };
             thread.Start();
-        }
-        // =====================
-        // END BATTLE
-        // =====================
+        } 
         private void endThread(Thread? thread)
         {
             if (thread == null) return;
             thread?.Join(500);
             thread = null;
         }
-
         public void KillAllThreads()
         {
             endThread(moveThread);

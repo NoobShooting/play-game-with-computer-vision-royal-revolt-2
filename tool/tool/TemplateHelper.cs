@@ -1,5 +1,7 @@
 ﻿using OpenCvSharp;
+using System;
 using System.Drawing.Imaging;
+using tool;
 
 public static class TemplateHelper
 {
@@ -11,13 +13,30 @@ public static class TemplateHelper
 
     private static readonly string TmpDir = Path.Combine(ProjectRoot, "tmp");
     private static readonly Dictionary<string, Mat> TemplateCache = new();
-
-
-    /// <summary>
-    /// Kiểm tra xem template có còn hiển thị tại vị trí (x,y) không
-    /// </summary>
-    public static bool IsTemplateVisible(int x, int y, string templateName, double threshold = 0.5)
+    public static GameState CheckCurrentFrame()
     {
+        try
+        {
+            var gameInstance = GameApplication.GetInstance();
+            var width = gameInstance.width;
+            var height = gameInstance.height;
+            if (IsTemplateVisible(GameAction.Battle)) return GameState.InMainMenu;
+            if (IsTemplateVisible(GameAction.Attack) || IsTemplateVisible(GameAction.Collect))  return GameState.JoiningBattle;
+            if (IsTemplateVisible(GameAction.Pause) || IsTemplateVisible(GameAction.RetreatLostGame) || IsTemplateVisible(GameAction.ContinuePauseGame) || IsTemplateVisible(GameAction.ContinueEndGame)) return GameState.InBattle;
+            if (IsTemplateVisible(GameAction.Chest) ) return GameState.OpeningChest;
+            if (IsTemplateVisible(GameAction.RetreatPauseGame) ) return GameState.Idle;
+            return GameState.Idle;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"[ERR] CheckCurrentFrame() lỗi: {ex.Message}");
+            return GameState.Idle;
+        }
+    } 
+    public static bool IsTemplateVisible(GameAction action, double threshold = 0.7)
+    {
+        var templateName = action.GetName();
+        var (ix, iy) = GameApplication.ActionCoordinate.GetCoordinate(action);
         string fullPath = Path.Combine(TmpDir, $"{templateName}.png");
 
         if (!File.Exists(fullPath))
@@ -26,45 +45,37 @@ public static class TemplateHelper
             return false;
         }
 
-        // Dùng cache nếu đã có
         if (!TemplateCache.TryGetValue(templateName, out Mat? template))
         {
             template = Cv2.ImRead(fullPath, ImreadModes.Color);
             TemplateCache[templateName] = template;
         }
 
-        using var screenMat = CaptureScreenRegion(x, y);
+        using var screenMat = CaptureScreenRegion(ix, iy);
         using var result = new Mat();
-        // chỗ này chỉ việc check templateName đã được lưu vào tmp có còn trên màn hình
         Cv2.MatchTemplate(screenMat, template, result, TemplateMatchModes.CCoeffNormed);
         Cv2.MinMaxLoc(result, out _, out double maxVal);
 
         Console.WriteLine($"[CHECK] '{templateName}' match={maxVal:F3}");
 
         return maxVal >= threshold;
-    }
-
-    /// <summary>
-    /// Chụp lại vùng quanh (x,y) và lưu làm template (tmp/{templateName}.png)
-    /// Nếu template đã tồn tại thì sẽ GHI ĐÈ bằng ảnh mới.
-    /// </summary>
-    public static void CaptureItem(int x, int y, string templateName = "unknown", int size = TEMPLATE_SIZE)
+    } 
+    public static void CaptureItem(GameAction action, int size = TEMPLATE_SIZE)
     {
         try
         {
-            using var mat = CaptureScreenRegion(x, y, size);
+            var templateName = action.GetName();
+            var (ix, iy) = GameApplication.ActionCoordinate.GetCoordinate(action);
+            using var mat = CaptureScreenRegion(ix, iy, size);
             string path = Path.Combine(TmpDir, $"{templateName}.png");
 
-            // Nếu đã tồn tại thì xóa trước (đảm bảo luôn là ảnh mới nhất)
             if (File.Exists(path))
             {
                 Console.WriteLine($"[INFO] Template '{templateName}' is exist.");
+                return;
             }
-
-            // Ghi lại ảnh mới
             Cv2.ImWrite(path, mat);
 
-            // Cache lại template trong RAM
             TemplateCache[templateName] = mat.Clone();
 
             Console.WriteLine($"[CAPTURE] Template '{templateName}' saved at {path}");
@@ -73,12 +84,7 @@ public static class TemplateHelper
         {
             Console.WriteLine($"[ERR] CaptureItem fail: {ex.Message}");
         }
-    }
-
-
-    /// <summary>
-    /// Chụp màn hình vùng quanh (x,y) – tốc độ cao, không cần MemoryStream
-    /// </summary>
+    } 
     private static Mat CaptureScreenRegion(int x, int y, int size = TEMPLATE_SIZE)
     {
         var screen = Screen.PrimaryScreen?.Bounds;
